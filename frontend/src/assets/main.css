@@ -1,7 +1,33 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+  --salmon-light: #F5A687;
+  --salmon: #FF6A51;
+  --salmon-dark: #FF523F;
 
-@custom-variant dark (&:is(.dark *));
+  --text-primary: #111827;
+  --text-muted: #4B5563;
+}
+
+@theme {
+  --color-salmon-light: var(--salmon-light);
+  --color-salmon: var(--salmon);
+  --color-salmon-dark: var(--salmon-dark);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.router-link-exact-active {
+  @apply font-bold text-salmon-dark pointer-events-none;
+}
+
+/* @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -120,4 +146,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

@@ -1,83 +1,60 @@
 <script setup>
-import {
-  NavigationMenu,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuItem,
-  navigationMenuTriggerStyle
-} from '@components/ui/navigation-menu'
-import { Sheet, SheetContent, SheetTrigger } from '@components/ui/sheet'
+import { useCartStore } from '@stores/CartStore';
 
-const title = import.meta.env.VITE_APP_NAME
-
-const links = [
-  {
-    label: 'Page',
-    to: '#'
-  }
-]
+const cart = useCartStore()
 </script>
 
 <template>
-  <header class="bg-white">
-    <div class="flex justify-between p-3 border-b-2 flex-wrap">
-      <RouterLink to="/" class="flex items-center space-x-3">
-        <span class="self-center text-2xl font-semibold">{{ title }}</span>
+  <header class="w-full border-b border-gray-400 bg-gray-50">
+    <nav class="w-full mx-auto flex items-center justify-between px-50 py-2">
+      <RouterLink to="/" class="flex items-center gap-3">
+        <img src="https://i.ibb.co/Ld4BZYWS/crop-logo.png" alt="logo" class="h-16 w-auto pb-1" />
+        <span class="text-3xl font-bold text-text-primary">
+          Nigirizéria
+        </span>
       </RouterLink>
-      <Sheet>
-        <SheetTrigger asChild>
-          <button variant="outline" size="icon" class="lg:hidden">
-            <svg
-              class="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-            <span class="sr-only">Navigációs menü</span>
-          </button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <RouterLink to="/" class="mr-6 hidden lg:flex">
-            <span class="sr-only">{{ title }}</span>
+
+      <ul class="flex items-center text-2xl gap-12 text-text-primary font-medium">
+        <li>
+          <RouterLink to="/"
+            class="relative inline-block transition-all duration-200 ease-out hover:text-salmon-dark hover:scale-[1.05]">
+            Főoldal
           </RouterLink>
-          <div class="grid gap-2 py-6">
-            <RouterLink
-              v-for="link of links"
-              :key="link.to"
-              :to="link.to"
-              class="flex w-full items-center py-2 text-lg font-semibold"
-            >
-              {{ link.label }}
-            </RouterLink>
-          </div>
-        </SheetContent>
-      </Sheet>
-      <NavigationMenu class="hidden lg:block">
-        <NavigationMenuList>
-          <NavigationMenuItem v-for="link of links" :key="link.to">
-            <RouterLink v-slot="{ isActive, href, navigate }" :to="link.to" custom>
-              <NavigationMenuLink
-                :active="isActive"
-                :href
-                :class="navigationMenuTriggerStyle()"
-                @click="navigate"
-              >
-                {{ link.label }}
-              </NavigationMenuLink>
-            </RouterLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+        </li>
+
+        <li>
+          <RouterLink to="/etlap"
+            class="relative inline-block transition-all duration-200 ease-out hover:text-salmon-dark hover:scale-[1.05]">
+            Étlap
+          </RouterLink>
+        </li>
+
+        <li>
+          <RouterLink to="/asztalfoglalas"
+            class="relative inline-block transition-all duration-200 ease-out hover:text-salmon-dark hover:scale-[1.05]">
+            Asztalfoglalás
+          </RouterLink>
+        </li>
+
+        <li>
+          <RouterLink to="/kapcsolat"
+            class="relative inline-block transition-all duration-200 ease-out hover:text-salmon-dark hover:scale-[1.05]">
+            Kapcsolat
+          </RouterLink>
+        </li>
+
+        <li>
+          <RouterLink to="/kosar" class="relative">
+            <img src="https://i.ibb.co/Jw8K9BKr/cart.png" alt="kosár" class="h-8 w-auto pt-1" />
+
+            <span v-if="cart.itemCount > 0"
+              class="absolute -top-8 -right-7 min-w-[18px] h-[18px] px-1 rounded-full bg-salmon-dark text-white text-xs flex items-center justify-center">
+              {{ cart.itemCount > 9 ? '9+' : cart.itemCount }}
+            </span>
+          </RouterLink>
+        </li>
+      </ul>
+
+    </nav>
   </header>
 </template>
