@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Reservation extends Model
+class Category extends Model
 {
     protected $fillable = [
         'name',
-        'date',
-        'guest_count',
-        'status',
     ];
 
-    public function timeSlots(): BelongsToMany
+    public function pizzas(): BelongsToMany
     {
-        return $this->belongsToMany(TimeSlot::class);
+        return $this->belongsToMany(Pizza::class);
     }
 }

@@ -2,55 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreReservationRequest;
-use App\Http\Requests\UpdateReservationRequest;
-use App\Http\Resources\ReservationResource;
 use App\Models\Reservation;
+use App\Http\Resources\ReservationResource;
+use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return ReservationResource::collection(Reservation::with('timeSlot')->get());
+        return ReservationResource::collection(Reservation::with('timeSlots')->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreReservationRequest $request)
+    public function store(Request $request)
     {
-        $reservation = Reservation::create($request->validated());
-        return new ReservationResource($reservation->load('timeSlot'));
+        abort(501, 'Not implemented yet');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Reservation $reservation)
     {
-        return new ReservationResource($reservation->load('timeSlot'));
+        return new ReservationResource($reservation->load('timeSlots'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateReservationRequest $request, Reservation $reservation)
+    public function update(Request $request, Reservation $reservation)
     {
-        $reservation->update($request->validated());
-        return new ReservationResource($reservation->load('timeSlot'));
+        abort(501, 'Not implemented yet');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Reservation $reservation)
     {
-        if ($reservation->delete()) {
-            return response()->noContent(204);
-        }
-        return abort(500);
+        abort(501, 'Not implemented yet');
     }
 }

@@ -3,20 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class TimeSlot extends Model
 {
     protected $fillable = [
         'start_time',
         'end_time',
-        'is_active'
+        'is_active',
     ];
 
-    /*
-    public function reservations(): HasMany
+    public function reservations(): BelongsToMany
     {
-        return $this->hasMany(Reservation::class, 'time_slot_id', 'id');
+        return $this->belongsToMany(Reservation::class);
     }
-    */
 }
