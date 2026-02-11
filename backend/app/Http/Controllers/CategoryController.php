@@ -13,23 +13,8 @@ class CategoryController extends Controller
         return CategoryResource::collection(Category::with('pizzas')->get());
     }
 
-    public function store(Request $request)
-    {
-        abort(501, 'Not implemented yet');
-    }
-
     public function show(Category $category)
     {
         return new CategoryResource($category->load('pizzas'));
-    }
-
-    public function update(Request $request, Category $category)
-    {
-        abort(501, 'Not implemented yet');
-    }
-
-    public function destroy(Category $category)
-    {
-        abort(501, 'Not implemented yet');
     }
 }

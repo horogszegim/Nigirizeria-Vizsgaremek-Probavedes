@@ -37,13 +37,6 @@ const cart = useCartStore()
         </li>
 
         <li>
-          <RouterLink to="/kapcsolat"
-            class="relative inline-block transition-all duration-200 ease-out hover:text-salmon-dark hover:scale-[1.05]">
-            Kapcsolat
-          </RouterLink>
-        </li>
-
-        <li>
           <RouterLink to="/kosar" class="relative inline-block" id="cart-link">
             <img src="https://i.ibb.co/Jw8K9BKr/cart.png" alt="kosár" class="h-8 w-auto pt-1" />
 

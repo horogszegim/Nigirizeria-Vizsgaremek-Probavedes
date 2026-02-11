@@ -10,28 +10,11 @@ class TimeSlotController extends Controller
 {
     public function index()
     {
-        return TimeSlotResource::collection(
-            TimeSlot::where('is_active', true)->get()
-        );
-    }
-
-    public function store(Request $request)
-    {
-        abort(501, 'Not implemented yet');
+        return TimeSlotResource::collection(TimeSlot::where('is_active', true)->get());
     }
 
     public function show(TimeSlot $timeSlot)
     {
         return new TimeSlotResource($timeSlot);
-    }
-
-    public function update(Request $request, TimeSlot $timeSlot)
-    {
-        abort(501, 'Not implemented yet');
-    }
-
-    public function destroy(TimeSlot $timeSlot)
-    {
-        abort(501, 'Not implemented yet');
     }
 }

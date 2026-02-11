@@ -13,8 +13,8 @@
                         </span>
                     </div>
                     <p class="text-sm leading-relaxed text-text-muted text-left">
-                        Rövid Leírás ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut scelerisque
-                        turpis.
+                        Speciális pizzára vágysz? Mondjuk egy <i>Nigiri Lazacos</i>ra? Tökéletes helyen jársz. Örülünk,
+                        hogy itt vagy!
                     </p>
                 </div>
 
@@ -74,10 +74,6 @@
                 <RouterLink to="/asztalfoglalas"
                     class="transition-all duration-200 hover:text-salmon-dark hover:scale-[1.05]">
                     Asztalfoglalás
-                </RouterLink>
-                <RouterLink to="/kapcsolat"
-                    class="transition-all duration-200 hover:text-salmon-dark hover:scale-[1.05]">
-                    Kapcsolat
                 </RouterLink>
             </nav>
         </div>

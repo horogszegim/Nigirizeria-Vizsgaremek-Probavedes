@@ -13,23 +13,8 @@ class PizzaController extends Controller
         return PizzaResource::collection(Pizza::with('categories')->get());
     }
 
-    public function store(Request $request)
-    {
-        abort(501, 'Not implemented yet');
-    }
-
     public function show(Pizza $pizza)
     {
         return new PizzaResource($pizza->load('categories'));
-    }
-
-    public function update(Request $request, Pizza $pizza)
-    {
-        abort(501, 'Not implemented yet');
-    }
-
-    public function destroy(Pizza $pizza)
-    {
-        abort(501, 'Not implemented yet');
     }
 }
