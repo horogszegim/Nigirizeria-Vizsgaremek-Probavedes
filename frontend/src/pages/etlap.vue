@@ -30,6 +30,7 @@ onMounted(() => {
                 <BaseCard
                     v-for="pizza in etlapStore.pizzak"
                     :key="pizza.id"
+                    :id="pizza.id"
                     :name="pizza.name"
                     :price="pizza.price"
                     :image="pizza.image_url"

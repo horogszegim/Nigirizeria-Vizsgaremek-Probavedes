@@ -4,6 +4,7 @@ import { useCartStore } from '@stores/CartStore'
 const cart = useCartStore()
 
 defineProps({
+    id: Number,
     name: String,
     price: Number,
     image: String,
@@ -31,10 +32,10 @@ defineProps({
                     {{ price }} Ft
                 </span>
 
-                <button :id="'add-to-cart-' + name"
+                <button :id="'add-to-cart-' + id"
                     class="px-4 py-2 bg-salmon-dark text-white rounded-lg cursor-pointer transition-all duration-200 ease-out
-                            hover:bg-salmon hover:scale-[1.05] active:scale-[0.95] active:bg-salmon-dark focus:outline-none"
-                    @click="cart.addItem({ name, price })">
+                           hover:bg-salmon hover:scale-[1.05] active:scale-[0.95] active:bg-salmon-dark focus:outline-none"
+                    @click="cart.addItem({ id, name, price })">
                     Kosárba
                 </button>
             </div>
