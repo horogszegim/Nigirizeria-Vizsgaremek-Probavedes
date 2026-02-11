@@ -1,12 +1,16 @@
 <script setup>
-import BaseHeader from '@components/layout/BaseHeader.vue';
-import BaseFooter from '@components/layout/BaseFooter.vue';
+import BaseHeader from '@components/layout/BaseHeader.vue'
+import BaseFooter from '@components/layout/BaseFooter.vue'
 </script>
 
 <template>
-  <BaseHeader />
-  <main class="container mx-auto">
-    <slot />
-  </main>
-  <BaseFooter />
+  <div class="min-h-screen flex flex-col">
+    <BaseHeader />
+
+    <main class="container mx-auto flex-1 flex">
+      <slot />
+    </main>
+
+    <BaseFooter />
+  </div>
 </template>

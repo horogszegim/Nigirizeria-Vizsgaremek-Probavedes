@@ -44,10 +44,10 @@ const cart = useCartStore()
         </li>
 
         <li>
-          <RouterLink to="/kosar" class="relative inline-block">
+          <RouterLink to="/kosar" class="relative inline-block" id="cart-link">
             <img src="https://i.ibb.co/Jw8K9BKr/cart.png" alt="kosár" class="h-8 w-auto pt-1" />
 
-            <span v-if="cart.itemCount > 0"
+            <span v-if="cart.itemCount > 0" id="cart-count"
               class="absolute top-1.5 right-1.5 translate-x-1/2 -translate-y-1/2 min-w-[18px] h-[18px] px-1 rounded-full bg-salmon-dark text-white text-xs flex items-center justify-center">
               {{ cart.itemCount > 9 ? '9+' : cart.itemCount }}
             </span>

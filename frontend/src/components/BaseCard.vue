@@ -31,7 +31,7 @@ defineProps({
                     {{ price }} Ft
                 </span>
 
-                <button
+                <button :id="'add-to-cart-' + name"
                     class="px-4 py-2 bg-salmon-dark text-white rounded-lg cursor-pointer transition-all duration-200 ease-out
                             hover:bg-salmon hover:scale-[1.05] active:scale-[0.95] active:bg-salmon-dark focus:outline-none"
                     @click="cart.addItem({ name, price })">

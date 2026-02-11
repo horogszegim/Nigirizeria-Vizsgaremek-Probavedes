@@ -19,7 +19,7 @@ onMounted(() => {
             </h1>
 
             <div class="flex justify-center mt-3">
-                <span class="block w-12 h-1 bg-black rounded-full"></span>
+                <span class="block w-12 h-1 bg-salmon-dark rounded-full"></span>
             </div>
 
             <p class="text-center text-sm text-gray-600 mt-2">
